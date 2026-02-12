@@ -46,7 +46,9 @@ document.addEventListener("keypress", (event) => {
         // Afficher la lettre dans la zone "Lettres jouées" avec un badge vert
         let spanLettre = document.createElement("span")
         spanLettre.textContent = LowerEvent.toUpperCase(), " ";
-        spanLettre.className = 'success'
+
+        bifurcation(LowerEvent, spanLettre);
+
         zoneLettre.appendChild(spanLettre)
 
         lettreJouer.push(LowerEvent)};
@@ -66,12 +68,30 @@ function testLettre(lettre) {
 }
 
 // Si la lettre est dans le mot
-function bonneLettre() {
-
+function bonneLettre(lettre) {
+    for (let index = 0; index < nombreLettres; index++) {
+        if (motATrouver[index] == lettre) {
+            let lettreSucces = affichageMot.childNodes[index];
+            lettreSucces.textContent = lettre;
+            lettreSucces.className = "";
+        }
+        
+    }
 }
 
 
 // Si la lettre n'est pas dans le mot
 function mauvaiseLettre() {
 
+}
+
+function bifurcation(lettre, span) {
+    if (testLettre(lettre)) {
+        bonneLettre(lettre);
+        span.className = "succes"
+    }
+    else {
+        mauvaiseLettre(lettre);
+        span.className = "echec";
+    }
 }
