@@ -69,20 +69,21 @@ function testLettre(lettre) {
 
 // Si la lettre est dans le mot
 function bonneLettre(lettre) {
+    // Remplacer tous les underscores correspondants par la lettre trouvée
     for (let index = 0; index < nombreLettres; index++) {
         if (motATrouver[index] == lettre) {
-            let lettreSucces = affichageMot.childNodes[index];
+            let lettreSucces = affichageMot.children[index];
             lettreSucces.textContent = lettre;
             lettreSucces.className = "";
-        }
-        
+        }   
     }
 }
 
 
 // Si la lettre n'est pas dans le mot
 function mauvaiseLettre() {
-
+    // Incrémenter le compteur d'erreurs
+    // Afficher la partie suivante du dessin du pendu
 }
 
 function bifurcation(lettre, span) {
