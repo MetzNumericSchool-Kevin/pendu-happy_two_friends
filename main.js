@@ -1,6 +1,6 @@
 
 // Au chargement de la page, sélectionner un mot aléatoire dans la liste
-const listeMots = ["arbre", "table","livre","musique","soleil","fleur","rivière"
+const listeMots = ["arbre", "table","livre","musique","soleil","fleur","riviere"
     ,"maison","chat","chien","fruit","pain","vin","ciel","vent","mer","bois","pierre"
     ,"route","porte"]
 
@@ -33,6 +33,7 @@ const zoneLettre = document.querySelector("#letters-used");
 const lettreJouer = [];
 //Mettre en place l'écouteur d'événements clavier
 //Le joueur tape une lettre sur son clavier physique
+
 document.addEventListener("keypress", (event) => {
     // Une lettre déjà jouée ne peut pas être rejouée
     const lowerEvent = event.key.toLowerCase()
@@ -45,4 +46,4 @@ document.addEventListener("keypress", (event) => {
         // Afficher la lettre dans la zone "Lettres jouées" avec un badge vert
         zoneLettre.textContent += lowerEvent + " " ;
         lettreJouer.push(lowerEvent)};
-});
+})
