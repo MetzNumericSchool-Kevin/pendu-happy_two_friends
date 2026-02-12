@@ -69,3 +69,6 @@ Quand le joueur clique sur "Nouvelle Partie" ou "Rejouer" :
 ## Notes
 
 - [Voir la documentation de DaisyUI](https://daisyui.com/components/) pour les componsants Badge, Modal, etc.
+
+
+test
