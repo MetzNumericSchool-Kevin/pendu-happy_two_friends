@@ -11,6 +11,21 @@ function randomIndex() {
 } 
 
 const motATrouver = listeMots[randomIndex()]
-
-
 console.log(motATrouver);
+
+//Afficher le mot avec des underscores pour chaque lettre
+const affichageMot = document.querySelector('.word-display');
+let nombreLettres = motATrouver.length;
+let nombreUnderscore = affichageMot.querySelectorAll('.letter-placeholder').length
+
+affichageMot.removeChild(affichageMot.firstElementChild)
+affichageMot.removeChild(affichageMot.firstElementChild)
+
+for (let i = 2; i < nombreLettres - 1; i++) {
+    let underscore = document.createElement('span');
+    underscore.className = 'letter-placeholder';
+    affichageMot.appendChild(underscore);
+}
+
+
+
