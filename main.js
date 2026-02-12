@@ -44,10 +44,8 @@ document.addEventListener("keypress", (event) => {
         // Afficher la lettre dans la zone "Lettres jouées" avec un badge vert
         zoneLettre.textContent += event.key.toUpperCase() + " " ;
         lettreJouer.push(event["key"])};
-        console.log(testLettre(event))
+        console.log(testLettre(event.key));
 });
-
-
 
 
 
@@ -55,10 +53,17 @@ document.addEventListener("keypress", (event) => {
 
 // Tester si la lettre est presente
 function testLettre(lettre) {
-    if (lettre in motATrouver) return true;
-    else false;
+    if (motATrouver.includes(lettre)) return true;
+    else return false;
 }
 
 // Si la lettre est dans le mot
-let lettreActuelle = lettreJouer[-1];
-console.log(testLettre(lettreActuelle));
+function bonneLettre() {
+
+}
+
+
+// Si la lettre n'est pas dans le mot
+function mauvaiseLettre() {
+
+}
