@@ -44,9 +44,12 @@ document.addEventListener("keypress", (event) => {
         alert("Votre saisis n'est pas une lettre.")
     }else {
         // Afficher la lettre dans la zone "Lettres jouées" avec un badge vert
-        zoneLettre.textContent += LowerEvent + " " ;
+        let spanLettre = document.createElement("span")
+        spanLettre.textContent = LowerEvent.toUpperCase(), " ";
+        spanLettre.className = 'success'
+        zoneLettre.appendChild(spanLettre)
+
         lettreJouer.push(LowerEvent)};
-        console.log(testLettre(event))
 });
 
 
