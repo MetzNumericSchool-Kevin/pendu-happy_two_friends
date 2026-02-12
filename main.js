@@ -34,18 +34,23 @@ const lettreJouer = [];
 //Mettre en place l'écouteur d'événements clavier
 //Le joueur tape une lettre sur son clavier physique
 document.addEventListener("keypress", (event) => {
+    // Vérification de la case
+    const LowerEvent = event.key.toLowerCase()
     // Une lettre déjà jouée ne peut pas être rejouée
-    if (lettreJouer.includes(event.key)) {
+    if (lettreJouer.includes(LowerEvent)) {
         alert("Cette Lettre a déjà été jouée.")
     //Seules les lettres de A à Z sont acceptées
-    } else if (!/^[a-zA-Z]$/.test(event.key)) {
+    } else if (!/^[a-zA-Z]$/.test(LowerEvent)) {
         alert("Votre saisis n'est pas une lettre.")
     }else {
         // Afficher la lettre dans la zone "Lettres jouées" avec un badge vert
-        zoneLettre.textContent += event.key.toUpperCase() + " " ;
-        lettreJouer.push(event["key"])};
-        console.log(testLettre(event.key));
+        zoneLettre.textContent += LowerEvent + " " ;
+        lettreJouer.push(LowerEvent)};
+        console.log(testLettre(event))
 });
+
+
+
 
 
 
