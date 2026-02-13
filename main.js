@@ -96,3 +96,14 @@ function bifurcation(lettre, span) {
         span.className = "echec";
     }
 }
+
+// Bouton Règles 
+const sidebar = document.querySelector(".sidebar")
+const sidebarbouton = sidebar.querySelectorAll(".card-body")[1]
+const boutonRegle = sidebarbouton.lastElementChild
+const boutonNouvellePartie = sidebarbouton.firstElementChild
+
+console.log(boutonRegle)
+boutonRegle.addEventListener("click", () => alert("- Un mot secret est choisi.\n- On affiche un tiret par lettre du mot.\n- Le joueur propose une lettre.\n- Si la lettre est dans le mot → elle est révélée.\n- Sinon → on ajoute un élément du pendu.\n- Le joueur gagne s’il trouve toutes les lettres avant que le dessin soit complet.\n- Le joueur perd si le pendu est entièrement dessiné."
+));
+
