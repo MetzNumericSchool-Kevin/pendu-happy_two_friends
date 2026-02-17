@@ -18,14 +18,19 @@ const affichageMot = document.querySelector('.word-display');
 let nombreLettres = motATrouver.length;
 let nombreUnderscore = affichageMot.querySelectorAll('.letter-placeholder').length
 
-affichageMot.removeChild(affichageMot.firstElementChild)
-affichageMot.removeChild(affichageMot.firstElementChild)
+function afficherUnderScores() {
+    affichageMot.removeChild(affichageMot.firstElementChild)
+    affichageMot.removeChild(affichageMot.firstElementChild)
 
-for (let i = 2; i < nombreLettres - 1; i++) {
-    let underscore = document.createElement('span');
-    underscore.className = 'letter-placeholder';
-    affichageMot.appendChild(underscore);
+    for (let i = 2; i < nombreLettres - 1; i++) {
+        let underscore = document.createElement('span');
+        underscore.className = 'letter-placeholder';
+        affichageMot.appendChild(underscore);
+    }
 }
+afficherUnderScores();
+
+
 
 
 let finJeu = false;
@@ -142,8 +147,7 @@ function NouvellePartie() {
     //changement de mot
     motATrouver = listeMots[randomIndex()];
     finJeu = false;
-
-
+    afficherUnderScores()
 }
 
 
