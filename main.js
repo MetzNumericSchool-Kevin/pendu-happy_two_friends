@@ -28,12 +28,14 @@ for (let i = 2; i < nombreLettres - 1; i++) {
 }
 
 
-
+let finJeu = false;
 const zoneLettre = document.querySelector("#letters-used");
 const lettreJouer = [];
 //Mettre en place l'écouteur d'événements clavier
 //Le joueur tape une lettre sur son clavier physique
 document.addEventListener("keypress", (event) => {
+    if (finJeu) return;
+
     // Vérification de la case
     const LowerEvent = event.key.toLowerCase()
     // Une lettre déjà jouée ne peut pas être rejouée
@@ -156,6 +158,7 @@ boutonRegle.addEventListener("click", () => alert(`
 function testVictoire() {
     if (victoireCompteur >= nombreLettres) {
         alert("Felcitations!")
+        finJeu = true;
     }
 }
 
