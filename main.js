@@ -10,7 +10,7 @@ function randomIndex() {
     return Math.floor(Math.random() * (max - min) ) + min;
 } 
 
-const motATrouver = listeMots[randomIndex()]
+let motATrouver = listeMots[randomIndex()]
 console.log(motATrouver);
 
 //Afficher le mot avec des underscores pour chaque lettre
@@ -114,9 +114,8 @@ function bifurcation(lettre, span) {
 const sidebar = document.querySelector(".sidebar")
 const sidebarbouton = sidebar.querySelectorAll(".card-body")[1]
 const boutonRegle = sidebarbouton.lastElementChild
-const boutonNouvellePartie = sidebarbouton.firstElementChild
+const boutonNouvellePartie = sidebarbouton.children[1]
 
-console.log(boutonRegle)
 boutonRegle.addEventListener("click", () => alert(`
     - Un mot secret est choisi.
     - On affiche un tiret par lettre du mot.
@@ -126,14 +125,22 @@ boutonRegle.addEventListener("click", () => alert(`
     - Le joueur gagne s’il trouve toutes les lettres avant que le dessin soit complet.
     - Le joueur perd si le pendu est entièrement dessiné.`
 ));
+console.log(boutonNouvellePartie)
+boutonNouvellePartie.addEventListener('click', () => NouvellePartie())
 
 
 
 
 
 
-
-
+function NouvellePartie() {
+    compteur = 0;
+    document.querySelector(".stat-value").textContent = compteur + "/5"
+    const allcontainer = container.querySelectorAll(".💩💩💩💩💩");
+    allcontainer.forEach(element => element.classList.replace("💩💩💩💩💩", "hidden"));
+    motATrouver = listeMots[randomIndex()];
+    finJeu = false;
+}
 
 
 
@@ -176,10 +183,11 @@ function testVictoire() {
     }
 }
 
+const container = document.querySelector(".hangman-container");
 
 function incrementError() {
     compteur++
     let error = "error-" + compteur;
-    const container = document.querySelector(".hangman-container");
+
     container.querySelector("#" + error).classList.replace("hidden", "💩💩💩💩💩")
 }
