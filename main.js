@@ -125,7 +125,6 @@ boutonRegle.addEventListener("click", () => alert(`
     - Le joueur gagne s’il trouve toutes les lettres avant que le dessin soit complet.
     - Le joueur perd si le pendu est entièrement dessiné.`
 ));
-console.log(boutonNouvellePartie)
 boutonNouvellePartie.addEventListener('click', () => NouvellePartie())
 
 
@@ -134,12 +133,17 @@ boutonNouvellePartie.addEventListener('click', () => NouvellePartie())
 
 
 function NouvellePartie() {
+    //réinitialisation du compteur 
     compteur = 0;
     document.querySelector(".stat-value").textContent = compteur + "/5"
+    //réinitialisation du pendu
     const allcontainer = container.querySelectorAll(".💩💩💩💩💩");
     allcontainer.forEach(element => element.classList.replace("💩💩💩💩💩", "hidden"));
+    //changement de mot
     motATrouver = listeMots[randomIndex()];
     finJeu = false;
+
+
 }
 
 
