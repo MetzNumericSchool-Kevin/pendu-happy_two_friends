@@ -1,4 +1,3 @@
-
 // Au chargement de la page, sélectionner un mot aléatoire dans la liste
 const listeMots = ["arbre", "table","livre","musique","soleil","fleur","riviere"
     ,"maison","chat","chien","fruit","pain","vin","ciel","vent","mer","bois","pierre"
@@ -35,7 +34,7 @@ afficherUnderScores();
 
 let finJeu = false;
 const zoneLettre = document.querySelector("#letters-used");
-const lettreJouer = [];
+let lettreJouer = [];
 //Mettre en place l'écouteur d'événements clavier
 //Le joueur tape une lettre sur son clavier physique
 document.addEventListener("keypress", (event) => {
@@ -144,10 +143,15 @@ function NouvellePartie() {
     //réinitialisation du pendu
     const allcontainer = container.querySelectorAll(".💩💩💩💩💩");
     allcontainer.forEach(element => element.classList.replace("💩💩💩💩💩", "hidden"));
+    //vidange de la zone de lettre 
+    const zoneLettreAll = document.querySelectorAll("#letters-used");
+    zoneLettreAll.forEach(element => element.remove());
+    lettreJouer = [];
     //changement de mot
     motATrouver = listeMots[randomIndex()];
     finJeu = false;
-    afficherUnderScores()
+    afficherUnderScores();
+    
 }
 
 
