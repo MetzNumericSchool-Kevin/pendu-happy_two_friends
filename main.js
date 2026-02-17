@@ -52,11 +52,9 @@ document.addEventListener("keypress", (event) => {
         // Afficher la lettre dans la zone "Lettres jouées" avec un badge vert
         let spanLettre = document.createElement("span")
         spanLettre.textContent = LowerEvent.toUpperCase(), " ";
-
         bifurcation(LowerEvent, spanLettre);
 
         zoneLettre.appendChild(spanLettre)
-
         lettreJouer.push(LowerEvent)};
 
         setTimeout(() => testVictoire(), 100)
