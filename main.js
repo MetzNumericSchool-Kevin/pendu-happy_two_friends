@@ -52,12 +52,9 @@ document.addEventListener("keypress", (event) => {
         zoneLettre.appendChild(spanLettre)
 
         lettreJouer.push(LowerEvent)};
+
+        setTimeout(() => testVictoire(), 100)
 });
-
-
-
-
-
 
 
 
@@ -67,6 +64,7 @@ function testLettre(lettre) {
     else return false;
 }
 
+let victoireCompteur = 0;
 // Si la lettre est dans le mot
 function bonneLettre(lettre) {
     // Remplacer tous les underscores correspondants par la lettre trouvée
@@ -75,6 +73,7 @@ function bonneLettre(lettre) {
             let lettreSucces = affichageMot.children[index];
             lettreSucces.textContent = lettre;
             lettreSucces.className = "";
+            victoireCompteur++
         }   
     }
 }
@@ -154,10 +153,11 @@ boutonRegle.addEventListener("click", () => alert(`
 
 
 
-
-
-
-
+function testVictoire() {
+    if (victoireCompteur >= nombreLettres) {
+        alert("Felcitations!")
+    }
+}
 
 
 function incrementError() {
