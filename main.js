@@ -84,7 +84,7 @@ let compteur = 0;
 // Si la lettre n'est pas dans le mot
 function mauvaiseLettre() {
     // Incrémenter le compteur d'erreurs
-    compteur ++;
+    incrementError();
     let compteurErreur = document.querySelector(".stat-value");
     compteurErreur.textContent = compteur + "/5";
     // Afficher la partie suivante du dessin du pendu
