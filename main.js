@@ -18,12 +18,10 @@ let nombreLettres = motATrouver.length;
 
 
 function afficherUnderScores() {
-    let nombreUnderscore = document.querySelector('.word-display').querySelectorAll('.letter-placeholder').length
-    for (let i = 0; i < nombreUnderscore - 1; i++) {
-        affichageMot.removeChild(affichageMot.firstElementChild)
-    }
-
-    for (let i = 0; i < nombreLettres - 1; i++) {
+    console.log(affichageMot.querySelectorAll("span").length)
+    affichageMot.querySelectorAll("span").forEach(element => element.remove())
+    console.log(affichageMot.querySelectorAll("span").length)
+    for (let i = 0; i < motATrouver.length; i++) {
         let underscore = document.createElement('span');
         underscore.className = 'letter-placeholder';
         affichageMot.appendChild(underscore);
@@ -150,8 +148,9 @@ function NouvellePartie() {
     //changement de mot
     motATrouver = listeMots[randomIndex()];
     finJeu = false;
+    victoireCompteur = 0;
     afficherUnderScores();
-    
+    console.log(motATrouver)
 }
 
 
