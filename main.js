@@ -142,9 +142,7 @@ function NouvellePartie() {
     const allcontainer = container.querySelectorAll(".💩💩💩💩💩");
     allcontainer.forEach(element => element.classList.replace("💩💩💩💩💩", "hidden"));
     //vidange de la zone de lettre 
-    const zoneLettreAll = document.querySelectorAll("#letters-used");
     const spanZoneAll = zoneLettre.querySelectorAll("span")
-    console.log(spanZoneAll)
     spanZoneAll.forEach(element => element.remove());
     lettreJouer = [];
     //changement de mot
