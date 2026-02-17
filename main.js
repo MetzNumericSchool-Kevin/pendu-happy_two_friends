@@ -93,6 +93,7 @@ function mauvaiseLettre() {
         setTimeout(() => {
             alert("Game Over looser!");
         finJeu = true;
+        afficherMot()
         }, 100)
         
     }
@@ -155,7 +156,13 @@ boutonRegle.addEventListener("click", () => alert(`
 
 
 
-
+function afficherMot() {
+    for (let index = 0; index < nombreLettres; index++) {
+            let lettre = affichageMot.children[index];
+            lettre.className = "";
+            lettre.textContent = motATrouver[index];
+    }
+}
 
 
 
