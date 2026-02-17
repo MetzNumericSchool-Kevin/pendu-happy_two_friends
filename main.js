@@ -15,13 +15,15 @@ console.log(motATrouver);
 //Afficher le mot avec des underscores pour chaque lettre
 const affichageMot = document.querySelector('.word-display');
 let nombreLettres = motATrouver.length;
-let nombreUnderscore = affichageMot.querySelectorAll('.letter-placeholder').length
+
 
 function afficherUnderScores() {
-    affichageMot.removeChild(affichageMot.firstElementChild)
-    affichageMot.removeChild(affichageMot.firstElementChild)
+    let nombreUnderscore = document.querySelector('.word-display').querySelectorAll('.letter-placeholder').length
+    for (let i = 0; i < nombreUnderscore - 1; i++) {
+        affichageMot.removeChild(affichageMot.firstElementChild)
+    }
 
-    for (let i = 2; i < nombreLettres - 1; i++) {
+    for (let i = 0; i < nombreLettres - 1; i++) {
         let underscore = document.createElement('span');
         underscore.className = 'letter-placeholder';
         affichageMot.appendChild(underscore);
