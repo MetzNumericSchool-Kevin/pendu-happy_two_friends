@@ -164,6 +164,5 @@ function incrementError() {
     compteur++
     let error = "error-" + compteur;
     const container = document.querySelector(".hangman-container");
-    const errorDiv = container.querySelector("#" + error).classList.remove(".hidden")
-
+    container.querySelector("#" + error).classList.replace("hidden", "💩💩💩💩💩")
 }
