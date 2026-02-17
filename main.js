@@ -93,11 +93,11 @@ function mauvaiseLettre() {
 function bifurcation(lettre, span) {
     if (testLettre(lettre)) {
         bonneLettre(lettre);
-        span.className = "succes"
+        span.className = "badge-success badge-lg"
     }
     else {
         mauvaiseLettre(lettre);
-        span.className = "echec";
+        span.className = "badge-error badge-lg";
     }
 }
 
