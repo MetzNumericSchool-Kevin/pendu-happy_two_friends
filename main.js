@@ -89,6 +89,13 @@ function mauvaiseLettre() {
     let compteurErreur = document.querySelector(".stat-value");
     compteurErreur.textContent = compteur + "/5";
     // Afficher la partie suivante du dessin du pendu
+    if (compteur >= 5) {
+        setTimeout(() => {
+            alert("Game Over looser!");
+        finJeu = true;
+        }, 100)
+        
+    }
 }
 
 function bifurcation(lettre, span) {
