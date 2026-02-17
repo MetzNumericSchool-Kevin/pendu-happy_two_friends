@@ -28,14 +28,11 @@ for (let i = 2; i < nombreLettres - 1; i++) {
 }
 
 
-let finJeu = false;
 const zoneLettre = document.querySelector("#letters-used");
 const lettreJouer = [];
 //Mettre en place l'écouteur d'événements clavier
 //Le joueur tape une lettre sur son clavier physique
 document.addEventListener("keypress", (event) => {
-    if (finJeu) return;
-
     // Vérification de la case
     const LowerEvent = event.key.toLowerCase()
     // Une lettre déjà jouée ne peut pas être rejouée
@@ -54,8 +51,6 @@ document.addEventListener("keypress", (event) => {
         zoneLettre.appendChild(spanLettre)
 
         lettreJouer.push(LowerEvent)};
-
-        setTimeout(() => testVictoire(), 100)
 });
 
 
@@ -66,7 +61,6 @@ function testLettre(lettre) {
     else return false;
 }
 
-let victoireCompteur = 0;
 // Si la lettre est dans le mot
 function bonneLettre(lettre) {
     // Remplacer tous les underscores correspondants par la lettre trouvée
@@ -75,7 +69,6 @@ function bonneLettre(lettre) {
             let lettreSucces = affichageMot.children[index];
             lettreSucces.textContent = lettre;
             lettreSucces.className = "";
-            victoireCompteur++
         }   
     }
 }
@@ -85,7 +78,7 @@ let compteur = 0;
 // Si la lettre n'est pas dans le mot
 function mauvaiseLettre() {
     // Incrémenter le compteur d'erreurs
-    incrementError();
+    compteur ++;
     let compteurErreur = document.querySelector(".stat-value");
     compteurErreur.textContent = compteur + "/5";
     // Afficher la partie suivante du dessin du pendu
@@ -119,53 +112,3 @@ boutonRegle.addEventListener("click", () => alert(`
     - Le joueur perd si le pendu est entièrement dessiné.`
 ));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function testVictoire() {
-    if (victoireCompteur >= nombreLettres) {
-        alert("Felcitations!")
-        finJeu = true;
-    }
-}
-
-
-function incrementError() {
-    compteur++
-    let error = "error-" + compteur;
-    const container = document.querySelector(".hangman-container");
-    container.querySelector("#" + error).classList.replace("hidden", "💩💩💩💩💩")
-}
